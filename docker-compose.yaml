@@ -1,0 +1,15 @@
+# For more information: https://laravel.com/docs/sail
+version: '3'
+services:
+  web:
+    image: node:16.4
+    env_file: .env
+    ports:
+      - 3000:3000
+    command: bash -c "npm install && npm run dev"
+    restart: unless-stopped
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      HOST: 0.0.0.0
